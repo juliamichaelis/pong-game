@@ -1,0 +1,96 @@
+<!-- Informationsseite zu dem Spiel Pong. 
+     Author: Julia Michaelis
+-->
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Julia Michaelis" />
+
+  <!-- Javascript Einbindung-->
+  <!-- Abspielen der Hintergrundmusik-->
+  <script language="javascript" type="application/javascript" src="../scripts/backgroundmusic.js"></script>
+  <!-- Bietet die Funktion load(url) an. Diese Funktion wird von der Navigation genutzt um einen CSS3 FadeOut 
+       Effekt vor dem laden einer neuen Seite anzuzeigen.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/helper/htmlloader.js"></script>
+  
+  <!-- Bietet die Funktion loadmenu an. Diese Funktion wird genutzt um das Menu per Ajax nachzuladen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadmenu.js"></script>
+  
+  <!-- Bittet die Funktion init an. Diese Funktion wird beim nach dem Laden der Seite über das
+       Ereignis onload ausgeführt, um z.B. ein globales Objekt für die Steuerung der Hintergrundmusik
+       anzubieten.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/onload/info.js"></script>
+
+  <!-- CSS Einbindung-->
+  <!-- Gemeinsam genutzte Stylesheets-->
+  <link rel="stylesheet" type="text/css" href="../css/co-stylesheet.css" />
+  <!-- Nur für diese Seite gültige Stylesheets, für den Content der Seite-->
+  <link rel="stylesheet" type="text/css" href="../css/info.css" />
+  <!-- CSS für das menu-->
+  <link rel="stylesheet" type="text/css" href="../css/menu.css"/>
+  <title>Pong</title>
+</head>
+
+<body onload="init();">
+  <!-- Zeigt das Hintergrundbild an.-->
+  <img id="background" class="background" src="../bilder/instruction.jpg" />
+
+  <!-- Audio Element für die Hintergrundmusik, wird von Javascript benötigt um die Hintergrundmusik
+       abzuspielen, lautlos und laut zu stellen.
+  -->
+  <audio id="backgroundMusic">
+    <source src="../music/ping.mp3" />
+  </audio>
+ 
+  <!-- Navigation -->
+  <nav id="navigation" class="slidemenu">
+  </nav>
+
+  <!-- Content der Seite -->
+  <main>
+
+  <content>
+      <h1>Anleitung</h1>
+     
+      <h2 style="text-align:justify; line-height: 1.5; color: white;">
+           <details>
+             <summary>Spielsteuerung</summary>
+           <p>
+            Sie haben die Möglichkeit, Ihren Schläger über die Maus oder über die Keytasten der Tastatur zu steuern, wobei die höhere Priorität bei der Maussteuerung liegt.
+            Der Spielstart gelingt mit einem Klick auf die linke Maustaste. Alternativ wird er über die Leertaste ausgelöst.
+           </p>
+          </details>
+          <details>
+            <summary>Spielregeln</summary>
+         
+          <p>            
+            Eine Runde wird so lange gespielt,  bis  der Spieler oder sein Gegner 10 Punkte angezeigt bekommt. Dabei erreichen Sie immer dann einen Punkt,wenn Ihr Gegner(also der PC) nicht den Ball trifft.
+            
+            Das gesamte Spiel endet, wenn Sie es Wünschen oder der PC 3    
+            komplette Runden gewonnen hat. 
+            
+            Es gibt verschiedene Level, welche in dem rechten Feld neben dem Canvas für Sie angezeigt werden.
+            
+             Das Spiel wurde so eingestellt, das sich der Ball im ersten Level mit 50 ms fortbewegt. Die Ballbewegung nimmt in jedem Level um 10 ms zu und außerdem die Trefferquote des PCs. Für ein gewonnenes erstes Level erhalten Sie 100 Punkte, für jedes weiter Level erhalten Sie 100 Punkte mehr. Also in Level 2=200 Punkte, in Level 3=300 Punkte usw.
+          </p>
+        </details>
+        <details>
+          <summary>Pausenmodus</summary>
+          <p>
+            Durch Klick der linken Maustaste (Achtung Cursor muss sich auf  dem Spielfeld  befinden !) oder alternativ wieder Leertaste gelangen Sie jederzeit in den Pausenmodus und durch erneutes Klicken bzw. Betätigen wieder hinaus.
+            
+            Die Musik ist   für Sie jederzeit über den entsprechend symbolisierten Button aus- bzw. anschaltbar. 
+          </p>
+        </details>
+        </h2>
+  </main>
+ 
+ 
+</body>
+
+</html>

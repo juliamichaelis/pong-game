@@ -1,0 +1,37 @@
+/** CSS für den Content der Seite **/
+.content{
+	background-color: black;
+	opacity: 0.8;
+	width: 60%;
+	height: calc(80% - 55px);
+	top : calc(10% + 55px/2);
+	left: calc(50% - 30%);
+	position: absolute;
+	overflow: hidden; 
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+	z-index : 1;
+	padding: 15px;
+	color: white;
+	text-align: justify;
+	overflow: auto;
+	font-size:3vh;
+}
+
+/** CSS für die Anzeige der Assets Tabelle als DIV **/
+.divTable{
+	display: table;
+	width: 100%;
+}
+/** CSS für die Anzeige einer Assets Tabellenzeile als DIV **/
+.divTableRow {
+	display: table-row;
+}
+
+/** CSS für die Anzeige einer Zelle in der Assets Tabelle **/
+.divTableCell {
+	display: table-cell;
+	padding: 10px;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: onload/pong.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: onload/pong.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+/**
+ * Funktion initialisiert das Spielfeld, das Objekt für die Hintergrundmusik und das Spiel an sich.
+ */
+function init() {
+	var style = getComputedStyle(document.body);
+
+	initMusic();
+	loadmenu('./menu.html');
+	htmlloader = new HTMLLoader("./");
+	var canvasElement = document.getElementById('content');
+
+	var context = canvasElement.getContext('2d');
+	var canvasmodel = new CanvasModel(canvasElement.getAttribute('width'), canvasElement.getAttribute('height'));
+	var canvasview = new CanvasView(canvasmodel, context);
+	canvasmodel.attachObserver(canvasview);
+
+	var paddlemodel = new PaddleModel(20, 80, 5, 100, style.getPropertyValue('--canvas-paddle-color'));
+	var paddleview = new PaddleView(paddlemodel, context);
+	paddlemodel.attachObserver(paddleview);
+	canvasmodel.courtElemente.push(paddlemodel);
+
+	var paddlemodel2 = new PaddleModel(620, 20, 5, 100, style.getPropertyValue('--canvas-paddle-color'));
+	var paddleview2 = new PaddleView(paddlemodel2, context);
+	paddlemodel2.attachObserver(paddleview2);
+	canvasmodel.courtElemente.push(paddlemodel2);
+
+	var netmodel = new NetModel(style.getPropertyValue('--canvas-paddle-color'), [15, 15], 4);
+	var netview = new NetView(netmodel, context);
+	netmodel.attachObserver(netview);
+	canvasmodel.courtElemente.push(netmodel);
+
+	var scoremodel = new ScoreModel(160, 120, style.getPropertyValue('--canvas-score-color'), style.getPropertyValue('--canvas-score-font'));
+	var scoreview = new ScoreView(scoremodel, context);
+	scoremodel.score = 0;
+	scoremodel.attachObserver(scoreview);
+	canvasmodel.courtElemente.push(scoremodel);
+
+	var scoremodel2 = new ScoreModel(480, 120, style.getPropertyValue('--canvas-score-color'), style.getPropertyValue('--canvas-score-font'));
+	var scoreview2 = new ScoreView(scoremodel2, context);
+	scoremodel2.score = 0;
+	scoremodel2.attachObserver(scoreview2);
+	canvasmodel.courtElemente.push(scoremodel2);
+		
+	var ballmodel = new BallModel(315, 240, style.getPropertyValue('--canvas-ball-color'), 7);
+	var ballview = new BallView(ballmodel, context);
+	ballmodel.attachObserver(ballview);
+	canvasmodel.courtElemente.push(ballmodel);
+
+	var textmodel = new TextModel(320, 240, "yellow", style.getPropertyValue('--canvas-font'), "\u25B6" );
+	var textView = new TextView(textmodel, context);
+	textmodel.attachObserver(textView);
+	canvasmodel.courtElemente.push(textmodel);
+
+	canvasmodel.notifyObservers();
+
+	new CourtController(canvasmodel, paddlemodel, paddlemodel2, ballmodel, context, scoremodel, scoremodel2, textmodel, canvasElement);
+
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackgroundMusic.html">BackgroundMusic</a></li><li><a href="BallModel.html">BallModel</a></li><li><a href="BallView.html">BallView</a></li><li><a href="CanvasModel.html">CanvasModel</a></li><li><a href="CanvasView.html">CanvasView</a></li><li><a href="Collision.html">Collision</a></li><li><a href="CourtController.html">CourtController</a></li><li><a href="Game.html">Game</a></li><li><a href="GameLevel.html">GameLevel</a></li><li><a href="HighscoreItem.html">HighscoreItem</a></li><li><a href="HighscoreModel.html">HighscoreModel</a></li><li><a href="HighscoreView.html">HighscoreView</a></li><li><a href="HTMLLoader.html">HTMLLoader</a></li><li><a href="Levels.html">Levels</a></li><li><a href="NetModel.html">NetModel</a></li><li><a href="NetView.html">NetView</a></li><li><a href="Observer.html">Observer</a></li><li><a href="PaddleModel.html">PaddleModel</a></li><li><a href="PaddleView.html">PaddleView</a></li><li><a href="ScoreModel.html">ScoreModel</a></li><li><a href="ScoreView.html">ScoreView</a></li><li><a href="Subject.html">Subject</a></li><li><a href="TextModel.html">TextModel</a></li><li><a href="TextView.html">TextView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#audioWrapper">audioWrapper</a></li><li><a href="global.html#beforeunload">beforeunload</a></li><li><a href="global.html#highscoremodel">highscoremodel</a></li><li><a href="global.html#htmlloader">htmlloader</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initMusic">initMusic</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#loadmenu">loadmenu</a></li><li><a href="global.html#save">save</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Feb 05 2019 21:12:45 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

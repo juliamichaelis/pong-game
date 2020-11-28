@@ -1,0 +1,101 @@
+/** 
+  *  CSS Datei für die Stylesheets, die alle Seiten benötigen
+  *	Author: Julia Michaelis
+  */
+
+/** Variablen für Farben Benutzung in js für canvas Elemente, wird z.B.
+	in der Javascript Datei onload/pong.js in der Methode init genutzt,
+	damit die Canvas Elemente mit einer bestimmten Farbe (gesteuert über CSS)
+	gemalt werden**/
+:root {
+	--menu-background: rgb(255,255,0);
+	--menu-background-mouseover: rgb(128,128,128);
+	--content-background: rgb(0,0,0);
+	--content-opacity: 0.8;
+	--content-heading: rgb(255,255,0);
+	--content-text: rgb(255,255,255);
+}
+
+/** Text WebFont **/
+@font-face { font-family:'text'; src:url('../fonts/FreeSans.ttf') format('truetype')}
+
+
+/** 
+    Body soll kein margin und padding besitzen. Die Seite soll ohne Ränder angezeigt werden.
+	Die Background-Color wird durch das Hintegrundbild überdeckt, falls vorhanden.
+ **/
+body{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+    font-family: text;
+	background-color: black;
+	overflow:hidden;
+}
+
+/**
+  * Der Hintegrund der Seite, soll die Seite total ausfüllen.
+  * Beim laden der Seite wird die fadeIn Animation gestartet.
+  * Die Fadin Animation läuft 4s. Das Ergebnis der Animation
+  * bleibt bestehen.
+  **/
+.background {
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	z-index:-1;
+	opacity: 1;
+	animation-name: fadeIn;
+	animation-duration: 4s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+	background-color: orange;
+}
+
+/** 
+  * CSS für Fehleranzeigen wenn Error in init Funktion ankommt
+  */
+.error {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	top: 25%;
+	right:25%;
+	background-color: lightgrey;
+	opacity: 0.8;
+	color: red;
+	text-align: center;
+	font-size: 20px;
+}
+
+.error::before{
+	content: 'Systemfehler: ';
+}
+
+/** Mausezeiger für details Element in instruction.html und legalnotice.html **/
+summary{
+	cursor: pointer;
+	background-color: yellow;
+	color:black;
+}
+
+summary:hover{
+	cursor: pointer;
+	background-color: rgb(128,128,128);
+	color:white;
+}
+
+/** Die FadeIn Animation beginnt mit der Deckkraft von 0% und erhöht diese auf 100% **/
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/** Scrollin für den Content**/
+@keyframes canvas_scrollin {
+ from{transform: translateX(+200%)}
+ to {transform: translateX(0)}
+}
+
+
+

@@ -1,0 +1,23 @@
+ <!-- Menüpunkte, werden per AJAX nachgeladen.-->
+ <div name="slideItem" class="slide" onclick="htmlloader.load('info.html')">
+    &#x1F4A1; Informationen
+  </div>
+ <div name="slideItem" class="slide" onclick="htmlloader.load('instruction.html')">
+    &#x1F4C3; Anleitung
+  </div>
+  <div name="slideItem" class="slide" onclick="htmlloader.load('pong.html')">
+    &#x1f3ae; Pong
+  </div>
+
+  <div name="slideItem" class="slide" onclick="htmlloader.load('highscore.html')">
+    &#x1f947; Bestenliste
+  </div>
+
+  <div name="slideItem" class="slide" onclick="htmlloader.load('legalnotice.html')">
+    &#x1F4EC; Impressum
+  </div>
+  <!-- Befehl für das lautlos und laut stellen der Hintergrundmusik.-->
+  <div name="slideItem" class="slidecommand">
+    <input id="sound" type="checkbox">
+    <label for="sound" onclick="audioWrapper.switchMute()"></label>
+  </div>

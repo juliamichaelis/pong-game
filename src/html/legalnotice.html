@@ -1,0 +1,143 @@
+<!-- Impressum
+     Author: Julia Michaelis
+-->
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="julia michaelis" />
+
+  <!-- Abspielen der Hintergrundmusik-->
+  <script language="javascript" type="application/javascript" src="../scripts/backgroundmusic.js"></script>
+  <!-- Lädt eine HTML Seite mit CSS Animationen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadSite.js"></script>
+  <!-- Init Methode für diese Seite-->
+  <script language="javascript" type="application/javascript" src="../scripts/onload/legalnotice.js"></script>
+    <!-- Bietet die Funktion load(url) an. Diese Funktion wird von der Navigation genutzt um einen CSS3 FadeOut 
+       Effekt vor dem laden einer neuen Seite anzuzeigen.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/helper/htmlloader.js"></script>
+  
+  <!-- Bietet die Funktion loadmenu an. Diese Funktion wird genutzt um das Menu per Ajax nachzuladen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadmenu.js"></script>
+   <!-- CSS Einbindung-->
+  <!-- Gemeinsam genutzte Stylesheets-->
+  <link rel="stylesheet" type="text/css" href="../css/co-stylesheet.css" />
+  <!-- CSS für das menu-->
+  <link rel="stylesheet" type="text/css" href="../css/legalnotice.css" />
+  <!-- Nur für diese Seite gültige Stylesheets, für den Content der Seite-->
+  <link rel="stylesheet" type="text/css" href="../css/menu.css"/>
+  <title>Pong</title>
+</head>
+
+<body onload="init();">
+  <!-- Zeigt das Hintergrundbild an.-->
+  <img id="background" class="background" src="../bilder/legalnotice.jpg" />
+  <!-- Audio Element für die Hintergrundmusik, wird von Javascript benötigt um die Hintergrundmusik
+       abzuspielen, lautlos und laut zu stellen.
+  -->
+  <audio id="backgroundMusic">
+    <source src="../music/ping.mp3" />
+  </audio>
+ <!-- Navigation -->
+  <nav id="navigation" class="slidemenu">
+  </nav>
+  <!-- Content der Seite-->
+  <div id="content" class="content">
+    <h1>Author</h1>
+    <ul>
+      Julia Michaelis </br>
+      Matrikelnummer: 70410013 </br>
+      E-mail: ju.michaelis@ostfalia.de </br>
+    </ul>
+    <h3 style="text-align:justify; line-height: 1.5; color: white;">
+    <details>
+    <summary>Assets</summary>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell">
+            Hintergrundmusik
+          </div>
+          <div class="divTableCell">
+              <a href="https://soundcloud.com/bamboostickk/sets/all-the-colors-of-the-rainbow">Link</a>
+          </div>
+          <div class="divTableCell">
+              <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0</a>
+          </div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell">
+              Spielesound 1
+            </div>
+            <div class="divTableCell">
+              <a href="https://lmms.io/lsp/?action=show&file=13331">Link</a>
+            </div>
+            <div class="divTableCell">
+                <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0</a>
+            </div>
+          </div>
+          <div class="divTableRow">
+              <div class="divTableCell">
+                Spielesound 2
+              </div>
+              <div class="divTableCell">
+                <a href="https://lmms.io/lsp/?action=show&file=12256">Link</a>
+              </div>
+              <div class="divTableCell">
+                  <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons 3.0</a>
+              </div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                Hintergrund Informationen
+              </div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/hintergrund-jahrgang-schreibtisch-3046435/">Link</a></div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/service/license/">Pixabay Lizenz</a></div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                Hintergrund Anleitung
+              </div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/tafel-leer-regel-vorschrift-3772063/">Link</a></div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/service/license/">Pixabay Lizenz</a></div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                Hintergrund Pong
+              </div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/tv-70er-jahre-60er-jahre-2213140/">Link</a></div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/service/license/">Pixabay Lizenz</a></div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                Hintergrund Bestenliste
+              </div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/pokal-podium-troph%C3%A4e-gold-golden-1615074/">Link</a></div>
+              <div class="divTableCell"><a href="https://pixabay.com/de/service/license/">Pixabay Lizenz</a></div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                Font Intro Schrift
+              </div>
+              <div class="divTableCell"><a href="https://www.fontspace.com/heaven-castro/cursed-timer-ulil">Link</a></div>
+              <div class="divTableCell">Freeware</div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                Font Menu und Text
+              </div>
+              <div class="divTableCell"><a href="https://www.fontspace.com/gnu-freefont/freesans">Link</a></div>
+              <div class="divTableCell"><a href="https://www.gnu.org/licenses/gpl-3.0.de.html">GPL 3.0</a></div>
+            </div>
+
+
+
+        </div>
+    </details>
+    </h2>
+  </div>
+</body>
+
+</html>

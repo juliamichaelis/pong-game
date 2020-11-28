@@ -1,0 +1,36 @@
+/** CSS für den Content der Seite **/
+content{
+	background: black;
+	opacity: 0.9;
+	width: 60%;
+	height: calc(80% - 55px);
+	top : calc(10% + 55px/2);
+	left: calc(50% - 30%);
+	position: absolute;
+	overflow: hidden; 
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+	z-index : 0;
+	overflow: auto;	
+	padding: 15px;
+	z-index: 1;	
+}
+
+
+/** CSS Überschrift Größe 1 **/
+h1{
+    font-size: 5vh;
+	color:yellow;
+	text-align: center;
+}
+
+/** CSS Überschrift Größe 2 **/
+h2{
+	font-size: 3vh;
+	color:white;
+	text-align: justify;
+	line-height: 2;
+}
+

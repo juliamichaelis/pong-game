@@ -1,0 +1,74 @@
+<!-- 
+  Informationsseite zu dem Spiel Pong. 
+  Author: Julia Michaelis
+-->
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Julia Michaelis" />
+
+  <!-- Javascript Einbindung-->
+  <!-- Abspielen der Hintergrundmusik-->
+  <script language="javascript" type="application/javascript" src="../scripts/backgroundmusic.js"></script>
+  <!-- Bietet die Funktion load(url) an. Diese Funktion wird von der Navigation genutzt um einen CSS3 FadeOut 
+       Effekt vor dem laden einer neuen Seite anzuzeigen.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/helper/htmlloader.js"></script>
+  <!-- Bietet die Funktion loadmenu an. Diese Funktion wird genutzt um das Menu per Ajax nachzuladen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadmenu.js"></script>
+  <!-- Bietet die Funktion init an. Diese Funktion wird beim nach dem Laden der Seite über das
+       Ereignis onload ausgeführt, um z.B. ein globales Objekt für die Steuerung der Hintergrundmusik
+       anzubieten.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/onload/info.js"></script>
+
+  <!-- CSS Einbindung-->
+  <!-- Gemeinsam genutzte Stylesheets-->
+  <link rel="stylesheet" type="text/css" href="../css/co-stylesheet.css" />
+  <!-- Nur für diese Seite gültige Stylesheets, für den Content der Seite-->
+  <link rel="stylesheet" type="text/css" href="../css/info.css" />
+  <!-- CSS für das menu-->
+  <link rel="stylesheet" type="text/css" href="../css/menu.css"/>
+  <title>Pong</title>
+</head>
+
+<body onload="init();">
+  <!-- Zeigt das Hintergrundbild an.-->
+  <img id="background" class="background" src="../bilder/index.jpeg" />
+
+  <!-- 
+    Audio Element für die Hintergrundmusik, wird von Javascript benötigt um die Hintergrundmusik
+    abzuspielen, lautlos und laut zu stellen.
+  -->
+  <audio id="backgroundMusic">
+    <source src="../music/ping.mp3" />
+  </audio>
+ 
+  <!-- Navigation -->
+  <nav id="navigation" class="slidemenu">
+  </nav>
+
+  <!-- Content der Seite -->
+  <main>
+
+  <content>
+      <h1>Pong</h1>
+     
+      <h2>
+      Das Spiel Pong ähnelt dem des Tischtennisspiels.
+      Der Kreis (Ball) bewegt sich auf dem Spielfeld hin und her. 
+      Es werden zwei  Schläger durch jeweils ein Rechteck symbolisiert. 
+      Die Bewegung eines Schlägers verläuft senkrecht. 
+      Das Spiel wurde im Einzelspielermodus gestaltet, d. h. es besteht die Möglichkeit, 
+      dass Sie sich gegen den PC behaupten, in dem Sie möglichst häufig den Ball treffen. 
+      </h2>
+    </content>
+  </main>
+ 
+ 
+</body>
+
+</html>

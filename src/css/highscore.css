@@ -1,0 +1,61 @@
+/** CSS für Div des Content der Highscore Seite **/
+.content{
+	background-color: black;
+	opacity: 0.8;
+	width: 60%;
+	height: calc(80% - 55px);
+	top : calc(10% + 55px/2);
+	left: calc(50% - 30%);
+	position: absolute;
+	overflow: hidden; 
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+	z-index : 1;
+	padding: 15px;
+	color: yellow;
+	overflow:auto;
+	font-size: 3vh;
+}
+
+/** CSS für die Anzeige der Highscores Tabelle als DIV **/
+.divTable{
+	display: table;
+	width: 100%;
+}
+
+/** CSS für die Anzeige einer Highscores Tabellenzeile (gerade Zeile) als DIV **/
+.divTableRow {
+	display: table-row;
+	background-color:yellow;
+	color:black;
+	margin:10px;
+}
+
+/** CSS für die Anzeige einer Highscores Tabellenzeile (ungerade Zeile) als DIV **/
+.divTableRowUneven{
+	display: table-row;
+	background-color:red;
+	color:black;
+	margin:10px;	
+}
+
+/** CSS für die Anzeige einer Highscore Zelle in der Tabelle**/
+.divTableCell {
+	display: table-cell;
+	padding: 10px;
+	border-bottom-style:solid;
+	border-bottom-color:black;
+	border-bottom-width: 5px;
+}
+
+/** CSS für die Anzeige einer Highscore Zelle der Überschrift in der Tabelle **/
+.divTableCellHeader{
+	display: table-cell;
+	padding: 10px;
+	background-color:orange;
+	border-bottom-style:solid;
+	border-bottom-color:black;
+	border-bottom-width: 10px;
+}

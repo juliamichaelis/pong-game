@@ -1,0 +1,62 @@
+<!-- Highscoreliste 
+     Author: Julia Michaelis
+-->
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="julia michaelis" />
+  <!-- Javascript Einbindung-->
+  <!-- Abspielen der Hintergrundmusik-->
+  <script language="javascript" type="application/javascript" src="../scripts/backgroundmusic.js"></script>
+  <!-- Bietet die Funktion loadmenu an. Diese Funktion wird genutzt um das Menu per Ajax nachzuladen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadmenu.js"></script>
+  <!-- Lädt eine HTML Seite mit CSS Animationen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadSite.js"></script>
+  <!-- Observer Pattern Klassen für die Highscore Klassen-->
+  <script language="javascript" type="application/javascript" src="../scripts/observerPattern.js"></script>
+  <!-- Bietet die Funktion load(url) an. Diese Funktion wird von der Navigation genutzt um einen CSS3 FadeOut 
+       Effekt vor dem laden einer neuen Seite anzuzeigen.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/helper/htmlloader.js"></script>
+  <!-- Javascript Methoden für die Highscore Verwaltung-->
+  <script language="javascript" type="application/javascript" src="../scripts/pong/highscore.js"></script>
+  <!-- Init Methode für diese Seite -->
+  <script language="javascript" type="application/javascript" src="../scripts/onload/highscore.js"></script>
+  <!-- CSS Einbindung-->
+  <!-- Gemeinsam genutzte Stylesheets-->
+  <link rel="stylesheet" type="text/css" href="../css/co-stylesheet.css" />
+  <!-- Highscore CSS Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="../css/highscore.css" />
+  <!-- CSS für das Menü, welches per AJAX nachgeladen wird.-->
+  <link rel="stylesheet" type="text/css" href="../css/menu.css"/>
+  <title>Pong</title>
+</head>
+
+<body onload="init()">
+    <!-- Zeigt das Hintergrundbild an.-->
+  <img id="background" class="background" src="../bilder/highscore.png" />
+  <!-- Audio Element für die Hintergrundmusik, wird von Javascript benötigt um die Hintergrundmusik
+       abzuspielen, lautlos und laut zu stellen.
+  -->
+  <audio id="backgroundMusic">
+    <source src="../music/ping.mp3" />
+  </audio>
+  <!-- Navigation -->
+  <nav id="navigation" class="slidemenu">
+  </nav>
+  <!-- Content der Seite -->
+  <div id="content" class="content">
+    <div class="divTable">
+        <div class="divTableRow">
+            <div class="divTableCellHeader">Platz</div>
+            <div class="divTableCellHeader">Name</div>
+            <div class="divTableCellHeader">Punkte</div>
+        </div> 
+    </div>
+  </div>
+</body>
+
+</html>

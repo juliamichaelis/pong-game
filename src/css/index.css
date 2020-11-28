@@ -1,0 +1,77 @@
+/** CSS für den Content der Seite (main Element) **/
+main{
+	opacity: 1;
+	width: 60%;
+	height: calc(80% - 7vh);
+	top : calc(10% + 7vh);
+	left: calc(50% - 30%);
+	position: absolute;
+	overflow: hidden; 
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+	z-index : -1;
+	padding: 0px;
+	color: white;
+	display:table;
+}
+
+/** CSS für das Content Tag, innerhalb von Main **/
+main > content {
+	vertical-align: middle;
+	display:table-cell;
+	font-family: text;
+	color:white;
+	opacity: 1;
+	font-size:20vh;
+	text-align:center;
+	display:table-cell;
+}
+
+/** Schrift für Pong Entry **/
+@font-face { font-family:'text'; src:url('../fonts/CursedTimerULiL.ttf') format('truetype')}
+
+/** CSS für Letters Div Letters **/
+.letters {
+	display:inline-flex;
+	width:70%
+}
+
+/** CSS für DIV für den Buchstaben P von Pong **/
+.p {
+	width:25%;
+	animation: color1 1s forwards;
+	color:rgb(248,97,70);
+}
+
+/** CSS für DIV für den Buchstaben o von Pong **/
+.o {
+	width:30%;
+	
+	color:rgb(17,123,85);
+	animation: color1 5s forwards;
+}
+
+/** CSS für DIV für den Buchstaben n von Pong **/
+.n {
+	width:30%;
+	color:rgb(244,225,87);
+	animation: color1 10s forwards;
+}
+
+/** CSS für DIV für den Buchstaben g von Pong **/
+.g {
+	width:30%;
+	color:rgb(32,53,62);
+	animation: color1 15s forwards;
+}
+
+/** Animation von Color White nach Green für die Buchstaben **/
+@keyframes color1 {
+	0% {color:white}
+	100% {color:green;}
+}
+
+
+

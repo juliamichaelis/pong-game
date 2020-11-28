@@ -1,0 +1,87 @@
+/** Font für die Canvas Text Elemente **/
+@font-face { font-family:'canvastext'; src:url('../fonts/CursedTimerULiL.ttf') format('truetype')}
+
+/** Variablen für Canvas Elemente **/
+:root {
+	--canvas-ball-color: rgb(255,255,0);
+	--canvas-paddle-color: rgb(255,255,0);
+	--canvas-net-color: rgb(255,255,0);
+	--canvas-score-color: rgb(169,169,169);
+	--canvas-score-font: 100px canvastext;
+	--canvas-font: 100px canvastext;
+	--canvas-background:  black;
+	--infos-background: black;
+}
+
+main{
+	position: absolute;
+	z-index:-1;
+	margin:0px;
+	padding:0px;
+	width: 100%;
+	height: 100%;
+	display:flex;
+	justify-content: space-around;
+	align-items:center;
+}
+/** CSS für das Canvas **/
+.court{
+	background-color: var(--canvas-background);
+    opacity: 0.8;
+	padding: 0px;
+	margin: 0px;
+	width:640px;
+	height:480px;
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+}
+
+/** CSS für die Information zum Spiel **/
+.infos{
+	background-color: var(--infos-background);
+    opacity: 0.8;
+	padding: 0px;
+	margin: 0px;
+	width: 320px;
+	height:480px;
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;
+	color: white;
+	font-size:2vh;
+}
+
+/** CSS für das Tooltip **/
+.tooltip{
+	position: absolute;
+	background-color:black;
+    opacity: 0.8;
+	padding: 0px;
+	margin: 0px;
+	color:white;
+	animation-name: canvas_scrollin;
+	animation-duration: 0.5s;
+	animation-play-state: running;
+	animation-fill-mode: forwards;	
+}
+
+/** CSS für Tabelle der Spielinformationen und der Steuerung **/
+.divTable{
+	display: table;
+	width: 100%;
+}
+
+/** CSS für Tabellenzeile der Spielinformationen und der Steuerung **/
+.divTableRow {
+	display: table-row;
+}
+
+
+/** CSS für Tabellenzelle der Spielinformationen und der Steuerung **/
+.divTableCell {
+	display: table-cell;
+	padding: 10px;
+}

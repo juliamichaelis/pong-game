@@ -1,0 +1,6 @@
+[
+    {"intervalMilliseconds":50,"hit":1,"level":"Level 1","dpoint":100},
+    {"intervalMilliseconds":40,"hit":2,"level":"Level 2","dpoint":200},
+    {"intervalMilliseconds":30,"hit":3,"level":"Level 3","dpoint":300},
+    {"intervalMilliseconds":20,"hit":4,"level":"Level 4","dpoint":400}
+]

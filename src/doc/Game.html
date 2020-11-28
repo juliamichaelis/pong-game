@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Game</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Game</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Game<span class="signature">(canvasModel, ballModel, paddleModelPc, paddleModelPlayer, canvasContext, scoremodel, scoremodel2, textModel)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Die Klasse Game ist für die Spiellogik und die Spielfeldinformationen 
+verantwortlich</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Game"><span class="type-signature"></span>new Game<span class="signature">(canvasModel, ballModel, paddleModelPc, paddleModelPlayer, canvasContext, scoremodel, scoremodel2, textModel)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>canvasModel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">canvasModel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ballModel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ballModel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paddleModelPc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">paddleModel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>paddleModelPlayer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">paddleModel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>canvasContext</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">CanvasRenderingContext2D</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scoremodel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">scoremodel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scoremodel2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">scoremodel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>textModel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">textModel</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="internalStart"><span class="type-signature"></span>internalStart<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Steuert die Bewegungen von Ball und Paddle des Computers.
+Prüft mit Hilfe der Kollisionsklasse (this.collision)
+ - ob ein Sound abgespielt werden muss.
+ - ob der Computer einen Punkt erhält.
+ - ob der Spieler einen Punkt erhält.
+ - beendet das aktuelle Spiel und ruft 
+     - winGame wenn Spieler 10 Punkte hat.
+     - loose wenn Computer 10 Punkte hat.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="loose"><span class="type-signature"></span>loose<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Wird aufgerufen, wenn Spieler verloren hat. 
+
+- Zeigt Tooltip an. 
+- Pausiert Spiel und zeigt Game Over wenn keine Leben mehr vorhanden sind, 
+  oder verloren an.
+- Setzt score von PC und Spieler des aktuellen Spiel auf 0.
+- Zeichnet Canvas neu.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line193">line 193</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="nextLevel"><span class="type-signature"></span>nextLevel<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Zeigt Tooltip an und setzt TextModel um den Text des nächsten Level anzuzeigen.
+Löscht den Intervalltimer für die Bewegung des Paddles des Computers und des Balls.
+Zeichnet Canvas neu.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line214">line 214</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="pause"><span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Wird vom CourtController aufgerufen wenn der Spieler ein Spiel pausieren möchte.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line226">line 226</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="playPong"><span class="type-signature"></span>playPong<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Methode um Geräuscheffekte der Schläger-Ball-Kollision zu erzeugen.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line243">line 243</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="playWall"><span class="type-signature"></span>playWall<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Methode um Geräuscheffekte der Ball-Wand-Kollision zu erzeugen.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line252">line 252</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Methode  um das Spiel zu starten bzw. die Pause zu beenden.
+Wenn das Spiel beendet ist wird zur Highscoreseite navigiert um 
+den Highscore einzutragen.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="winGame"><span class="type-signature"></span>winGame<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Wird aufgerufen, wenn der Spieler im aktuellen Spiel 10 Punkte erreicht hat.
+ - Zeigt Tooltip an.
+ - Aktualisiert den Highscore Punktestand laut gameLevel
+ - Setzt Scores des aktuellen Spiels auf 0.
+ - Lädt nächstes Level wenn vorhanden, sonst bleibt Level bestehen.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pong_game.js.html">pong/game.js</a>, <a href="pong_game.js.html#line174">line 174</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackgroundMusic.html">BackgroundMusic</a></li><li><a href="BallModel.html">BallModel</a></li><li><a href="BallView.html">BallView</a></li><li><a href="CanvasModel.html">CanvasModel</a></li><li><a href="CanvasView.html">CanvasView</a></li><li><a href="Collision.html">Collision</a></li><li><a href="CourtController.html">CourtController</a></li><li><a href="Game.html">Game</a></li><li><a href="GameLevel.html">GameLevel</a></li><li><a href="HighscoreItem.html">HighscoreItem</a></li><li><a href="HighscoreModel.html">HighscoreModel</a></li><li><a href="HighscoreView.html">HighscoreView</a></li><li><a href="HTMLLoader.html">HTMLLoader</a></li><li><a href="Levels.html">Levels</a></li><li><a href="NetModel.html">NetModel</a></li><li><a href="NetView.html">NetView</a></li><li><a href="Observer.html">Observer</a></li><li><a href="PaddleModel.html">PaddleModel</a></li><li><a href="PaddleView.html">PaddleView</a></li><li><a href="ScoreModel.html">ScoreModel</a></li><li><a href="ScoreView.html">ScoreView</a></li><li><a href="Subject.html">Subject</a></li><li><a href="TextModel.html">TextModel</a></li><li><a href="TextView.html">TextView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#audioWrapper">audioWrapper</a></li><li><a href="global.html#beforeunload">beforeunload</a></li><li><a href="global.html#highscoremodel">highscoremodel</a></li><li><a href="global.html#htmlloader">htmlloader</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initMusic">initMusic</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#loadmenu">loadmenu</a></li><li><a href="global.html#save">save</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Feb 05 2019 21:12:45 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

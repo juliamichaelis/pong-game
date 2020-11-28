@@ -1,0 +1,73 @@
+/** Webfont für das Menu **/
+@font-face { font-family:'menutext'; src:url('../fonts/FreeSansBold.ttf') format('truetype')}
+
+/** CSS für Menu **/
+.slidemenu{
+	position: absolute;
+	background-color: var(--menu-background);
+	top: 0px;
+	display:inline-block;
+	width: 100%;
+	opacity: 0.9;
+}
+
+/** CSS für Menu Eintrag **/
+.slide{
+	height: 100%;
+	font-size: 4vh;
+	padding-top:1vh;
+	padding-bottom: 1vh;
+	padding-left:1vw;
+	padding-right:1vw;
+	font-family: menutext;
+	float:left;
+	color:black;
+	text-overflow:ellipsis;
+}
+
+/** Mouseover CSS für Menu Eintrag **/
+.slide:hover{
+	cursor: pointer;
+	background-color: rgb(111, 119, 111);
+}
+
+/** CSS für das Kommando (Musik an und aus) **/
+.slidecommand{
+	height: 100%;
+	font-size: 4vh;
+	padding:0px;
+	font-family: menutext;
+	color: black;
+	float:right;
+}
+
+
+/** CSS für das Kommando (Musik an und aus)  -Checkbox nicht anzeigen. **/
+.slidecommand input{
+	opacity: 0;
+}
+
+/** CSS für das Kommando (Musik an und aus) - Display für Checkbox **/
+input[type=checkbox] + label{
+	padding-right:1vw;
+	padding-left:1vw;
+	padding-top:1vh;
+	padding-bottom:1vh;
+	display:inline-block;
+}
+
+/** CSS für das Kommando (Musik an und aus) beim Mouseover - Display für Checkbox **/
+input[type=checkbox] + label:hover {
+	background-color: rgb(111, 119, 111);
+	cursor: pointer;
+} 
+
+/** CSS für das Kommando (Musik an und aus) Anzeige des Symbols Musik aus**/
+input[type=checkbox] + label::before {
+	content: "\1F507";
+} 
+
+/** CSS für das Kommando (Musik an und aus) Anzeige des Symbols Musik an **/
+input[type=checkbox]:checked + label::before {
+	content: "\1F50A";	
+} 

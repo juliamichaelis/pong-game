@@ -1,0 +1,115 @@
+<!--  Spiel Pong
+     Author: Julia Michaelis
+-->
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024, initial-scale=1.0" />
+  <meta name="author" content="julia michaelis" />
+  <!-- Lädt eine HTML Seite mit CSS Animationen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadSite.js"></script>
+  <!-- Javascript zur Steuerung der Hintergrundmusik-->
+  <script language="javascript" type="application/javascript" src="../scripts/backgroundmusic.js"></script>
+  <!-- Klassen für das Observer Pattern für das Canvas-->
+  <script language="javascript" type="application/javascript" src="../scripts/observerPattern.js"></script>
+  <!-- Skripte für das Canvas Model und die Canvas View-->
+  <script language="javascript" type="application/javascript" src="../scripts/pong/highscore.js"></script>
+  <script language="javascript" type="application/javascript" src="../scripts/canvas/canvas.js"></script>
+  <script language="javascript" type="application/javascript" src="../scripts/canvas/paddle.js"></script>
+  <script language="javascript" type="application/javascript" src="../scripts/canvas/ball.js"></script>
+  <script language="javascript" type="application/javascript" src="../scripts/canvas/net.js"></script>
+  <script language="javascript" type="application/javascript" src="../scripts/canvas/score.js"></script>
+  <script language="javascript" type="application/javascript" src="../scripts/canvas/text.js"></script>
+  <!-- Event Verwaltungsmethoden für das Canvas-->
+  <script language="javascript" type="application/javascript" src="../scripts/courtController.js"></script>
+  <!-- Javascript für die Kollisionsprüfung-->
+  <script language="javascript" type="application/javascript" src="../scripts/pong/collision.js"></script>
+  <!-- Javascript für die Level Verwaltung-->
+  <script language="javascript" type="application/javascript" src="../scripts/pong/level.js"></script>
+  <!-- Javascript für die Spiellogik-->
+  <script language="javascript" type="application/javascript" src="../scripts/pong/game.js"></script>
+   <!-- Bietet die Funktion loadmenu an. Diese Funktion wird genutzt um das Menu per Ajax nachzuladen -->
+  <script language="javascript" type="application/javascript" src="../scripts/loadmenu.js"></script>
+   <!-- Bietet die Funktion load(url) an. Diese Funktion wird von der Navigation genutzt um einen CSS3 FadeOut 
+       Effekt vor dem laden einer neuen Seite anzuzeigen.
+  -->
+  <script language="javascript" type="application/javascript" src="../scripts/helper/htmlloader.js"></script>
+  <!-- Init Methode für diese Seite-->
+  <script language="javascript" type="application/javascript" src="../scripts/onload/pong.js"></script>
+  
+    <!-- CSS Einbindung-->
+  <!-- Gemeinsam genutzte Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="../css/co-stylesheet.css" />
+  <!-- CSS für das menu-->
+  <link rel="stylesheet" type="text/css" href="../css/menu.css" />
+  <!-- Nur für diese Seite gültige Stylesheets, für den Content der Seite-->
+  <link rel="stylesheet" type="text/css" href="../css/pong.css" />
+
+  <title>Pong</title>
+</head>
+
+<body onload="init()">
+<!-- Zeigt das Hintergrundbild an.-->
+<img id="background" class="background" src="../bilder/pong.png" />
+ <!-- Audio Element für die Hintergrundmusik, wird von Javascript benötigt um die Hintergrundmusik
+       abzuspielen, lautlos und laut zu stellen.
+  -->
+<audio id="backgroundMusic">
+  <source src="../music/ping.mp3" />
+</audio>
+  <!-- Navigation -->
+<nav id="navigation" class="slidemenu">
+</nav>
+<main>
+<!-- Canvas Element -->
+<canvas id="content" class="court" width="640" height="480">
+</canvas>
+<!-- Tooltip-->
+<div class="tooltip" id="tooltip">Mause- oder Leertaste drücken</div>
+<!-- Info Anzeige für das Spiel-->
+<div id="infos" class="infos">
+  <h3><center>Spielinformationen</center></h3>
+  <hr/>
+  <div class="divTable">
+      <div class="divTableRow">
+      <div class="divTableCell">Level:</div>
+      <div class="divTableCell" id="level"></div>
+      </div>
+      <div class="divTableRow">
+      <div class="divTableCell">Score:</div>
+      <div class="divTableCell" id="score"></div>
+      </div>
+      <div class="divTableRow">
+          <div class="divTableCell">Leben:</div>
+          <div class="divTableCell" id="lives"></div>
+      </div>
+    </div>
+  <br/><br/>
+  <h3><center>Steuerung</center></h3>
+  <hr/>
+      <div class="divTable">
+          <div class="divTableRow">
+          <div class="divTableCell">&nbsp;Start/Pause:</div>
+          <div class="divTableCell">&nbsp;Mouseclick</div>
+          </div>
+          <div class="divTableRow">
+          <div class="divTableCell">&nbsp;</div>
+          <div class="divTableCell">&nbsp;Space</div>
+          </div>
+          <div class="divTableRow">
+          <div class="divTableCell">&nbsp;Bewegung:</div>
+          <div class="divTableCell">&nbsp;Mousebewegungen</div>
+          </div>
+          <div class="divTableRow">
+          <div class="divTableCell">&nbsp;</div>
+          <div class="divTableCell">&nbsp;KeyUp,KeyDown</div>
+          </div>
+          </div>
+          </div>    
+</div>
+</main>
+</body>
+
+</html>

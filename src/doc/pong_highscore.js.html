@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pong/highscore.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pong/highscore.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+/**
+ * Klasse für den Highscoremodel
+ */
+class HighscoreModel extends Subject {
+	/**
+	 * Konstruktor für das Highscoremodel.
+	 */
+	constructor(){
+		super();
+		this.highscore = [];
+		this.load();
+		this.sort();
+	}
+
+	/**
+	 * Fügt ein Highscoreelement in die Highscoreliste ein und sortiert
+	 * diese.
+	 * @param {object} highscoreItem - Highscoreeintrag 
+	 */
+	addItem(highscoreItem){
+		this.highscore.push(highscoreItem);
+		this.sort();
+	}
+
+	sort(){
+		this.highscore = this.highscore.sort(function(l,u){
+			return u.points - l.points;
+		});	
+	}
+
+	/**
+	 * Speichert das Array von Highscoreeinträgen im localStorage
+	 */
+	save(){
+		window.localStorage.setItem('highscore', JSON.stringify(this.highscore));
+	}
+
+	/**
+	 * Lädt das Array von Highscoreeinträgen aus dem localStorage.
+	 */
+	load(){
+		var highscoreString = window.localStorage.getItem('highscore');
+		console.log("!" + highscoreString);
+		if(highscoreString == null)
+			this.save();
+		this.highscore = JSON.parse(localStorage.getItem('highscore'));
+	}
+
+	/**
+	 * Fügt allen Elementen im HighscoreModel die ein Textfeld besitzen den Namen
+	 * hinzu. Wird von der save Methode aufgerufen, die wiederum aufgerufen wird,
+	 * wenn der Spieler seinen Namen eingegeben hat und Enter drückt.
+	 * @param {string} name - Name des Spielers für den Highscore.
+	 */
+	saveName(name){
+		this.highscore.forEach(function(element){
+			if(element.name == '&lt;input type="text" id="name" title="Mit Enter beenden" onkeypress="save(event,this)">&lt;/input>'){
+				element.name = name;
+			}
+		});
+		this.save();
+	}
+
+}
+
+/**
+ * Erzeugt den Highscore im HTML 5 DOM
+ */
+class HighscoreView extends Observer {
+	/**
+	 * Konstruktor
+	 * @param {HighscoreModel} model 
+	 * @param {HTMLElement} htmlElement in dem die Highscores angezeigt werden sollen.
+	 */
+	constructor(model,htmlElement){
+		super();
+		this.model = model;
+		this.htmlElement = htmlElement;
+	}
+
+	/**
+	 * Wird von notifyObserver aufgerufen, um die View zu aktualisieren.
+	 */
+	update(){
+		var innerHTML = '&lt;div class="divTable">' +
+        				'&lt;div class="divTableRow">' +
+            			'&lt;div class="divTableCellHeader">Platz&lt;/div>' +
+            			'&lt;div class="divTableCellHeader">Name&lt;/div>' +
+            			'&lt;div class="divTableCellHeader">Punkte&lt;/div>' +
+						'&lt;/div>';
+		var position = 1;
+		this.model.highscore.forEach(function(item){
+			if(position%2)
+				innerHTML = innerHTML + '&lt;div class="divTableRow">';
+			else
+				innerHTML = innerHTML + '&lt;div class="divTableRowUneven">';
+
+			innerHTML = innerHTML + '&lt;div class="divTableCell">';
+			innerHTML = innerHTML + position + '.';
+			innerHTML = innerHTML + '&lt;/div>';
+
+			
+			innerHTML = innerHTML + '&lt;div class="divTableCell">';
+			innerHTML = innerHTML + item.name;
+			innerHTML = innerHTML + '&lt;/div>';
+
+			
+			innerHTML = innerHTML + '&lt;div class="divTableCell">';
+			innerHTML = innerHTML + item.points;
+			innerHTML = innerHTML + '&lt;/div>';
+
+			innerHTML = innerHTML + '&lt;/div>';
+			position++;
+		});
+		innerHTML = innerHTML + '&lt;/div>';
+		this.htmlElement.innerHTML = innerHTML;
+	}
+}
+
+/** 
+ * Methode für eine Keypress eventlistener eines Highscoreelements in der HTML Seite.
+ * Wenn Enter gedrückt wird, wird das HighscoreModel (Methode: saveName()) aufgerufen und
+ * zurück zur Spielseite navigiert.
+ * @param {event} event - KeypressEvent.
+ * @param {HTMLElement} ele - Highscoreelement auf dem Enter gedrückt wurde.
+ */
+var save = function (event,ele){
+	if (event.keyCode == 13) {
+		console.log("save");	
+		var highscore = new HighscoreModel();
+		highscore.saveName(ele.value);
+		load('./pong.html');
+	}
+}
+
+/**
+ * Model für einen Highscoreeintrag.
+ */
+class HighscoreItem{
+	/**
+	 * Konstruktor des Highscores
+	 * @param {string} name - Name des Spielers 
+	 * @param {number} points - Punkte des Spielers
+	 */
+	constructor(name, points){
+		this.name = name;
+		this.points = points;
+	}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BackgroundMusic.html">BackgroundMusic</a></li><li><a href="BallModel.html">BallModel</a></li><li><a href="BallView.html">BallView</a></li><li><a href="CanvasModel.html">CanvasModel</a></li><li><a href="CanvasView.html">CanvasView</a></li><li><a href="Collision.html">Collision</a></li><li><a href="CourtController.html">CourtController</a></li><li><a href="Game.html">Game</a></li><li><a href="GameLevel.html">GameLevel</a></li><li><a href="HighscoreItem.html">HighscoreItem</a></li><li><a href="HighscoreModel.html">HighscoreModel</a></li><li><a href="HighscoreView.html">HighscoreView</a></li><li><a href="HTMLLoader.html">HTMLLoader</a></li><li><a href="Levels.html">Levels</a></li><li><a href="NetModel.html">NetModel</a></li><li><a href="NetView.html">NetView</a></li><li><a href="Observer.html">Observer</a></li><li><a href="PaddleModel.html">PaddleModel</a></li><li><a href="PaddleView.html">PaddleView</a></li><li><a href="ScoreModel.html">ScoreModel</a></li><li><a href="ScoreView.html">ScoreView</a></li><li><a href="Subject.html">Subject</a></li><li><a href="TextModel.html">TextModel</a></li><li><a href="TextView.html">TextView</a></li></ul><h3>Global</h3><ul><li><a href="global.html#audioWrapper">audioWrapper</a></li><li><a href="global.html#beforeunload">beforeunload</a></li><li><a href="global.html#highscoremodel">highscoremodel</a></li><li><a href="global.html#htmlloader">htmlloader</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initMusic">initMusic</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#loadmenu">loadmenu</a></li><li><a href="global.html#save">save</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Feb 05 2019 21:12:45 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

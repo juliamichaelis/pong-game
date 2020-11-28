@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Julia Michaelis" />
+
+  <!-- Javascript Einbindung-->
+  <!-- Abspielen der Hintergrundmusik-->
+  <script language="javascript" type="application/javascript" src="./scripts/backgroundmusic.js"></script>
+
+  <!-- Bietet die Funktion load(url) an. Diese Funktion wird von der Navigation genutzt um einen CSS3 FadeOut 
+       Effekt vor dem laden einer neuen Seite anzuzeigen.
+  -->
+  <script language="javascript" type="application/javascript" src="./scripts/helper/htmlloader.js"></script>
+
+  <!-- Bietet die Funktion loadmenu an. Diese Funktion wird genutzt um das Menu per Ajax nachzuladen -->
+  <script language="javascript" type="application/javascript" src="./scripts/loadmenu.js"></script>
+  <!-- Bittet die Funktion init an. Diese Funktion wird beim nach dem Laden der Seite über das
+       Ereignis onload ausgeführt, um z.B. ein globales Objekt für die Steuerung der Hintergrundmusik
+       anzubieten.
+  -->
+  <script language="javascript" type="application/javascript" src="./scripts/onload/index.js"></script>
+
+  <!-- CSS Einbindung-->
+  <!-- Gemeinsam genutzte Stylesheets für das Menü sowie FadeIn und FadeOut Effekte-->
+  <link rel="stylesheet" type="text/css" href="./css/co-stylesheet.css" />
+
+  <!-- Menu Stylesheet-->
+  <link rel="stylesheet" type="text/css" href="./css/menu.css" />
+
+  <!-- Nur für diese Seite gültige Stylesheets, für den Content der Seite-->
+  <link rel="stylesheet" type="text/css" href="./css/index.css" />
+
+  <title>Pong</title>
+</head>
+
+<body onload="init();">
+
+  <!-- Zeigt das Hintergrundbild an.-->
+  <!--<img id="background" class="background" src="./bilder/index.jpeg" />-->
+ 
+  <!-- Audio Element für die Hintergrundmusik, wird von Javascript benötigt um die Hintergrundmusik
+       abzuspielen, lautlos und laut zu stellen.
+  -->
+  <audio id="backgroundMusic">
+    <source src="./music/ping.mp3" />
+  </audio>
+ 
+  <!-- Navigation -->
+  <nav id="navigation" class="slidemenu">
+  </nav>
+
+  <!-- Content der Seite -->
+  <main id="content">
+    <content>
+        <div class="letters">
+        <div class="p">P</div>
+        <div class="o">o</div>
+        <div class="n">n</div>
+        <div class="g">g</div>
+        </div>
+
+    </content>
+  </main>
+  
+  <!-- Animation im Hintergrund des Content -->
+  <canvas id="animation" class="animation">
+
+  </canvas>
+
+</body>
+
+</html>
